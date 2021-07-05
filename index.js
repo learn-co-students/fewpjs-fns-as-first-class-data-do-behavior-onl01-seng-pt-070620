@@ -12,18 +12,23 @@ function handleClick(e) {
 /* Write your implementation of greet() */
 
 function greet(time){
-
-  const hour = parseInt(time.split(':')[0]);
   let greeting;
-
-  if (hour < 12){
-    greeting = "Good Morning";
-  } else if (hour <= 17){
-    greeting = "Good Afternoon";
-  } else {
-    greeting = "Good Evening";
+  if (time) {
+    const hour = parseInt(time.split(':')[0]);
+    if (hour > 0 && hour < 12){
+      greeting = "Good Morning";
+    } else if (hour <= 17){
+      greeting = "Good Afternoon";
+    } else if(hour <= 24) {
+      greeting = "Good Evening";
+    }
+    else {
+      greeting = "Please enter a valid time!"
+    }
+  } 
+  else {
+    greeting = "Please enter a time!"
   }
-
   return greeting;
 }
 
